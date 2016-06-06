@@ -108,7 +108,12 @@ typedef NS_ENUM(NSInteger, ORKQuestionType) {
     /**
      In a location question, the participant can enter a location using a map view.
      */
-    ORKQuestionTypeLocation
+    ORKQuestionTypeLocation,
+    
+    /**
+     In an body coordinates question, the participant can select a location on an image of the body.
+     */
+    ORKQuestionTypeBodyCoordinates
 } ORK_ENUM_AVAILABLE;
 
 /**
@@ -155,6 +160,7 @@ typedef NS_ENUM(NSInteger, ORKNumberFormattingStyle) {
 @class ORKEmailAnswerFormat;
 @class ORKTimeIntervalAnswerFormat;
 @class ORKLocationAnswerFormat;
+@class ORKBodyCoordinatesAnswerFormat;
 
 @class ORKTextChoice;
 @class ORKImageChoice;
@@ -257,6 +263,8 @@ ORK_CLASS_AVAILABLE
                                                                         step:(NSInteger)step;
 
 + (ORKLocationAnswerFormat *)locationAnswerFormat;
+
++ (ORKBodyCoordinatesAnswerFormat *)bodyCoordinatesAnswerFormat;
 
 /// @name Validation
 
@@ -1347,5 +1355,14 @@ ORK_CLASS_AVAILABLE
 
 @end
 
+/**
+ The 'ORKBodyCoordinatesAnswerFormat' class represents the answer format for questions that require the user to select coordinates on the image of a body.
+ 
+ An 'ORKBodyCoordinatesAnswerFormat' object produces an 'ORKBodyCoordinatesQuestionResult' object.
+ */
+ORK_CLASS_AVAILABLE
+@interface ORKBodyCoordinatesAnswerFormat : ORKAnswerFormat
+
+@end
 
 NS_ASSUME_NONNULL_END
